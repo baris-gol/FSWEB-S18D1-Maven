@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@ExtendWith(ResultAnalyzer.class)	
+@ExtendWith(ResultAnalyzer.class)
 class SqlDmlJoinsApplicationTests {
 
 	private KitapRepository kitapRepository;
@@ -69,7 +69,7 @@ class SqlDmlJoinsApplicationTests {
 	void findStudentNameCountTest(){
 		List<StudentNameCount> studentNameCountList = ogrenciRepository.findStudentNameCount();
 		StudentNameCount sema = studentNameCountList.stream().filter(studentNameCount -> studentNameCount.getAd().equals("Sema"))
-						.collect(Collectors.toList()).get(0);
+				.collect(Collectors.toList()).get(0);
 
 		assertEquals(sema.getCount(), 2);
 		assertEquals(ogrenciRepository.findStudentNameCount().size(), 9);
